@@ -87,6 +87,13 @@ button:hover {
   gap: 1.5rem;
 }
 
+/* Mobile fix */
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
 .project-card {
   background: var(--panel);
   border: 1px solid var(--border);
@@ -187,8 +194,8 @@ iframe {
 
 .close-btn {
   position: absolute;
-  top: 20px;
-  right: 40px;
+  top: 2dvw;
+  right: 2dvw;
   font-size: 1.8rem;
   color: var(--accent);
   background: none;
