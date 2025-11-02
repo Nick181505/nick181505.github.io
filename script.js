@@ -12,14 +12,31 @@ document.addEventListener("DOMContentLoaded", async () => {
   const projects = await res.json();
   renderProjects(projects);
 
+  // Format the date into something readable (e.g., Jan 3, 2025)
+  function formatDate(dateStr) {
+    const date = new Date(dateStr);
+    return date.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
+  }
+
+  // Render project cards
   function renderProjects(projects) {
     projects.forEach((p) => {
       const card = document.createElement("div");
       card.classList.add("project-card");
+
+      var status = "";
+      if (p.active) {
+        status = `<span class="status active">Active</span>`;
+      }
+
       card.innerHTML = `
         <img src="${p.image}" alt="${p.title}">
         <div class="project-card-content">
-          <h3>${p.title}</h3>
+          <div class="project-header">
+            <h3>${p.title}</h3>
+            ${status}
+          </div>
+          <p class="created">${formatDate(p.created_at)}</p>
           <p>${p.short_description}</p>
           <p class="skills"><strong>Skills:</strong> ${p.skills.join(", ")}</p>
         </div>
@@ -35,13 +52,26 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // Project detail overlay
   function openProject(project) {
-    let html = `<h2>${project.full_content.title}</h2>`;
+    const status = project.active
+      ? `<span class="status active">Active</span>`
+      : `<span class="status complete">Completed</span>`;
+
+    let html = `
+      <div class="project-meta">
+        <h2>${project.full_content.title}</h2>
+        <p class="created">${formatDate(project.created_at)}</p>
+        ${status}
+      </div>
+    `;
+
     project.full_content.sections.forEach(section => {
       if (section.p) html += `<p>${section.p.replace(/\n/g, "<br>")}</p>`;
       if (section.media) html += `<img src="${section.media}" alt="">`;
     });
+
     projectDetails.innerHTML = html;
     projectOverlay.classList.remove("hidden");
   }
+
   closeProject.addEventListener("click", () => projectOverlay.classList.add("hidden"));
 });
