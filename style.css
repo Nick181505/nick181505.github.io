@@ -78,7 +78,6 @@ button:hover {
 
 #projects {
   padding: 2rem;
-  max-width: 1000px;
   margin: auto;
 }
 
@@ -110,7 +109,7 @@ button:hover {
 }
 
 .project-card h3 {
-  margin-top: 0;
+  margin: 0;
   color: var(--accent);
 }
 
@@ -185,6 +184,7 @@ iframe {
   border-radius: 6px;
   margin: 1rem 0;
 }
+
 .close-btn {
   position: absolute;
   top: 20px;
@@ -203,4 +203,36 @@ iframe {
 @keyframes slideUp {
   from { transform: translateY(50px); opacity: 0; } 
   to { transform: translateY(0); opacity: 1; }
+}
+
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.status {
+  font-size: 0.8rem;
+  height: 0.8rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.status.active {
+  background: #238636;
+  color: #fff;
+}
+
+.created {
+  font-size: 0.85rem;
+  color: #8b949e;
+  font-weight: bold;
+  margin: 0.3rem 0 0.8rem 0;
+}
+
+#project-details .project-meta {
+  margin-bottom: 1.5rem;
 }
