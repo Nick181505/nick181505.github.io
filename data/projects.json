@@ -2,6 +2,8 @@
 {
     "title": "FastAPI Web Infrastructure",
     "image": "assets/images/project1.jpg",
+    "active": true,
+    "created_at": "2022-04-24",
     "skills": ["Python", "FastAPI", "NGINX", "Cloudflare", "Web Development", "Web Security"],
     "short_description": "A self-hosted API platform using FastAPI and NGINX behind Cloudflare, serving over 48,000 users.",
     "full_content": {
@@ -46,6 +48,8 @@
 {
     "title": "ESP32-S3 WebSocket Display",
     "image": "assets/images/project2.gif",
+    "active": false,
+    "created_at": "2025-03-11",
     "skills": ["ESP32", "Embedded Programing", "WebSocket", "C", "Python"],
     "short_description": "An ESP32-S3 based device that displays real-time messages, images, and animations via WebSocket.",
     "full_content": {
@@ -87,6 +91,8 @@
 {
   "title": "Secure Server Deployment and Virtualization with Pterodactyl + Linux",
   "image": "assets/images/project3.png",
+  "active": false,
+  "created_at": "2025-09-16",
   "skills": ["Linux", "Pterodactyl", "Docker", "Cloudflare", "System Hardening", "Network Security"],
   "short_description": "A self-hosted server platform built on Linux and Pterodactyl, designed for secure virtualization and service hosting using Docker, Cloudflare protection, and advanced performance tuning.",
   "full_content": {
